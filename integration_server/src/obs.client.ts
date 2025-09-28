@@ -1,22 +1,23 @@
 import OBSWebSocket from "obs-websocket-js";
 import EventEmitter from "events";
 import { IntegrationEvent } from "../../shared.js";
+import { Secrets } from "./secrets.js";
 
 export class ObsClient extends EventEmitter<{ "event": [IntegrationEvent] }> {
     private static readonly ObsEventInputVolumeMetersSub = 1 << 16;
     private static readonly RpcVersion = 1;
 
-    private static readonly ObsWebsocketUrl = "ws://127.0.0.1:4455";
+    private static readonly ObsWebsocketBaseUrl = "ws://127.0.0.1";
     private static readonly VolumeThreshold = 0.02;
     private static readonly AttackMinLenMs = 100;
 
     private speakingStart: number = 0;
 
-    constructor() {
+    constructor(secrets: Secrets) {
         super();
         const obs = new OBSWebSocket();
 
-        obs.connect(ObsClient.ObsWebsocketUrl, undefined, {
+        obs.connect(`${ObsClient.ObsWebsocketBaseUrl}:${secrets.obsPort}`, undefined, {
             eventSubscriptions: ObsClient.ObsEventInputVolumeMetersSub,
             rpcVersion: ObsClient.RpcVersion,
         }).catch((err) => console.log("WARN: Failed to connect to OBS WebSocket", err.message));

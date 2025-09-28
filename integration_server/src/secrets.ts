@@ -41,7 +41,7 @@ function parseField(inp: Record<string, string>, field: string): field is string
     return true;
 }
 
-type Secrets = {
+export type Secrets = {
     channelId: string;
     botId: string;
     clientId: string;

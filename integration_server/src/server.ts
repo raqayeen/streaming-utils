@@ -19,7 +19,7 @@ const app = express();
 const server = createServer(app);
 const wss = new WebSocketServer({ server, path: "/wss" });
 const twitchClient = new TwitchClient(secrets);
-const obsClient = new ObsClient();
+const obsClient = new ObsClient(secrets);
 
 wss.on("connection", (ws) => {
     console.log("A WebSocket connected");
