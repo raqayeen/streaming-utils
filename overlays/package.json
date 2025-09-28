@@ -1,0 +1,16 @@
+{
+    "name": "overlays",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build"
+    },
+    "dependencies": {
+        "vite": "^7.1.7"
+    },
+    "devDependencies": {
+        "sass-embedded": "^1.93.2"
+    }
+}

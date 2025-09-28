@@ -1,0 +1,73 @@
+#chat {
+    position: absolute;
+    right: 0;
+    max-width: 500px;
+    max-height: calc(100vh / 2);
+    display: flex;
+    align-items: flex-end;
+    flex-flow: column-reverse;
+}
+
+#chat[data-sleep="true"]>.chat-item {
+    transition: filter 300ms ease;
+    filter: opacity(0);
+}
+
+.chat-item {
+    position: relative;
+    background-color: #02031d;
+    color: #fdfce2;
+    padding: .6rem 1rem;
+    border-radius: 2rem;
+    margin: 1.5rem 1.5rem 0;
+    width: fit-content;
+    animation: message-pop-up 100ms forwards ease-in;
+}
+
+.channel {
+    background-color: black;
+    color: whitesmoke;
+    position: absolute;
+    width: max-content;
+    border-radius: 2rem;
+    padding: .1rem .4rem;
+    top: -1rem;
+    right: -.2rem;
+    transform: rotate(3deg);
+    font-family: "Alfa Slab One";
+    font-size: .8rem;
+    box-shadow: .1rem .1rem;
+}
+
+.message {
+    word-wrap: break-word;
+    font-family: "Shantell Sans";
+}
+
+.badge {
+    margin-right: .2rem;
+}
+
+.inline-img {
+    vertical-align: sub;
+    object-fit: cover;
+    width: 1.12rem;
+    height: 1.12rem;
+}
+
+.inline-img[data-onlyimg="true"] {
+    width: 2rem;
+    height: 2rem;
+}
+
+@keyframes message-pop-up {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

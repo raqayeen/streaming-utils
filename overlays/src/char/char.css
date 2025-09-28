@@ -1,0 +1,12 @@
+#char {
+    transition: transform 30ms ease-in;
+    position: absolute;
+    right: -150px;
+    bottom: -700px;
+    width: calc(1446px/1.9);
+    height: calc(2290px/1.9);
+}
+
+[data-bounce="true"] {
+    transform: translate(0px, -10px) scaleX(0.95)
+}

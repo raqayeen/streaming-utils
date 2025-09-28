@@ -1,0 +1,19 @@
+body[data-barberpoll] {
+    width: 1920px;
+    height: 1080px;
+    background-image:
+        repeating-linear-gradient(135deg,
+            #821C1C,
+            #821C1C 1rem,
+            #A52525 1rem,
+            #A52525 2rem);
+    background-size: 200% 200%;
+    animation: barberpole 100s linear infinite reverse;
+    overflow: hidden;
+}
+
+@keyframes barberpole {
+    100% {
+        background-position: 100% 100%;
+    }
+}
