@@ -19,7 +19,7 @@ export class ObsClient extends EventEmitter<{ "event": [IntegrationEvent] }> {
         obs.connect(ObsClient.ObsWebsocketUrl, undefined, {
             eventSubscriptions: ObsClient.ObsEventInputVolumeMetersSub,
             rpcVersion: ObsClient.RpcVersion,
-        }).catch((err) => console.log("FAIL: Failed to connect to OBS WebSocket", err));
+        }).catch((err) => console.log("WARN: Failed to connect to OBS WebSocket", err.message));
 
         const onVolumeChange = this.onVolumeChange.bind(this) as ((resp: { inputs: {}[] }) => void);
         obs.on('InputVolumeMeters', onVolumeChange);
